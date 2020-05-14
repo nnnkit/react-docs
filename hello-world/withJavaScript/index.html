@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World with JavaScript</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- JavaScript -->
+    <script>
+      // Creating the element
+      let rootContainer = document.getElementById('root');
+      let heading = document.createElement('h1');
+      heading.innerText = 'Hello World!';
+
+      // Mounting to DOM
+
+      rootContainer.append(heading);
+      React.createElement(
+        'div',
+        { className: 'header' },
+        React.createElement('h1', { className: 'header' }, 'Hello World!')
+      );
+    </script>
+  </body>
+</html>
