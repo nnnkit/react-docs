@@ -260,3 +260,71 @@ We will add babel to our code. **Now when you will write JSX inside script tag r
 </html>
 ```
 
+When you write the JSX code babel will compile it and put it in your code. You can see the the compiled code as shown below.
+
+![JSX](/Users/ankit/Documents/work/js_altcampus/react-docs/hello-world/assets/compiled.png)
+
+
+
+There are few thing you need to keep in mind when you are writing JSX in comparision to HTML.
+
+![JSX vs HTML](/Users/ankit/Documents/work/js_altcampus/react-docs/hello-world/assets/jsx-vs-html.png)
+
+If you want to show two elements like a `p` and a `span` how will you do it?
+
+
+
+```html
+<html>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.13.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js">
+    </script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script type="text/babel">
+      let heading = <p>Hello World!</p><span>I'm Span</span>;
+      ReactDOM.render(heading, document.getElementById('root'));
+    </script>
+  </body>
+</html>
+```
+
+
+
+The code above will not work the rule is you need to have only one parent element. But here as you can see there are two parent element `p` and `span`. So the solution is to wrap them into one parent element like a div like `<div><p>Hello World!</p><span>I'm Span</span></div>` or if you don't want to add extra div you can use `React.Fragment`.
+
+
+
+*`React.Fragment` let's you wrap multiple children into one parent node without adding extra node.* Like
+
+`<React.Fragment><p>Hello World!</p><span>I'm Span</span></React.Fragment>`. There is a shorthand for React.Fragment in JSX i.e `<></>` just one and close bracket.
+
+#### You can also use JS inside JSX
+
+The benefits of writing of JSX is that you can write JavaScript if you want. For writing JS you have to put it into `{}` like `{1+1}` . ***You can only put expression inside curly brackets.*** It means you put anything that results into a value. You can't puth `for`,`if`,`switch`, `variable defination` etc.
+
+```html
+<html>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.13.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js">
+    </script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script type="text/babel">
+    	let username = "Arya Stark";
+    	let headingClass = "main__heading";
+      let heading = <p className={headingClass}>
+      								Hello {username}!
+      							</p>; // Hello Arya Stark!
+      ReactDOM.render(heading, document.getElementById('root'));
+    </script>
+  </body>
+</html>
+```
+
+
+
+**Do Project Card and homepage**
+
